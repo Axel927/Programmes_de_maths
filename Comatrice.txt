@@ -1,0 +1,54 @@
+Ce code n'est valide que pour les Casio
+
+=== Code ===
+
+Mat A#
+Dim Mat A
+List Ans[1->D 'Dimensions de la matrice
+{D,D->Dim Mat B 'On cree une matrice de dimensions D,D
+{D-1,D-1->Dim Mat Z
+For 1->K To D 'On se promene dans la matrice A
+For 1->L To D
+1->M
+For 1->I To D 'On va remplir la matrice Z
+1->N
+For 1->J To D
+If K != I And L != J 'Si on n'est pas sur les lignes et colonnes de la position K,L
+Then Mat A[I,J->Mat Z[M,N
+Isz N 'N+=1
+IfEnd
+Next
+If K!=I
+Then Isz M 'M+=1
+IfEnd
+Next
+(-1)^(K+L)*Det Mat Z->Mat B[K,L 'On remplit la matrice B
+Next
+Next
+Mat B# 'On affiche la comatrice
+ClrMat Z 'On efface la matrice Z
+
+=== Pour ecrire le code ===
+
+* Menu PRGM puis F3 puis choisir un nom puis EXE
+
+- Le symbole # represente le symbole triangle accessible via SHIFT VARS F5. Il permet d'attendre que l'utilisateur appuie sur EXE pour continuer
+- Le symbole ' permet l'écriture de commentaires (non lus par l'interpreteur) et n'est donc pas necessaire a l'execution du code. Il est accessible via F6 puis sixieme caractere sur la droite
+- Mat est accessible via OPTN F2 F1
+- Dim est accessible via OPTN F2 F6 F2 
+- List est accessible via OPTN F1
+- If est accessible via SHIFT VARS F1
+- For est accessible via SHIFT VARS F6 F1
+- Les symboles != representent le symbole different accessible via F6 neuvieme caractere
+
+=== A propos ===
+
+Cree la comatrice de la matrice A et l'affiche.
+
+=== Utilisation ===
+
+Le code utilise la matrice A qui doit etre editee dans le menu RUN MAT. Appuyer sur F3 puis entrer les dimensions (m=nombre d'inconnues et n=nombre d'inconnues+1) puis EXE. EXIT pour finir.
+Ensuite aller dans le menu PRGM. Se placer sur le programme et appuyer sur F1. La matrice rentree va s'afficher. Appuyer sur EXE. Le calcul de la comatrice se lance (ca peut prendre un peu de temps a calculer) puis la comatrice s'affiche.
+Elle est accessible dans la matrice B dans RUN MATH
+
+ATTENTION : Le programme utilise la matrice B et la matrice Z. Leur precedent contenu sera donc efface.
