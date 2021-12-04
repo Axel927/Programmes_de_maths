@@ -12,7 +12,7 @@ Mat B[K,K->P 'P prend la valeur pivot
 If P 'Si P non nul
 Then For K+1->I To D
 Mat B[I,K->V 'V prend la valeur a annuler
-For K->J To D+1
+For K->J To 2*D
 Mat B[I,J]-V/P*Mat B[K,J->Mat B[I,J 'On remplace la valeur en position I,J
 Next
 Next
@@ -27,7 +27,7 @@ Mat B[I,I->P 'P prend la valeur pivot
 If P 'Si P non nul
 Then For 1->K To I-1
 Mat B[K,I->V
-For I->J To D+1
+For I->J To 2*D
 Mat B[K,J]-V/P*Mat B[I,J->Mat B[K,J
 Next
 Next
@@ -37,7 +37,9 @@ IfEnd
 Mat B# 'Affichage de la matrice
 Next
 For 1->I To D 'Calcul des solutions
-Mat B[I,D+1]/Mat B[I,I->Mat B[I, D+1
+For D+1->J To 2*D
+Mat B[I,J]/Mat B[I,I->Mat B[I,J
+Next
 1->Mat B[I, I
 Next
 "RES"#
@@ -60,17 +62,17 @@ Mat B# 'Affichage des solutions
 
 === A propos ===
 
-Resout un systeme d'equations a plusieurs inconnues et affiche les differentes etapes.
+Calcule la matrice inverse et affiche les differentes etapes.
 Ne change pas l'ordre des equations et arrête le programme si le pivot est nul. 
 
 === Utilisation ===
 
-Le code utilise la matrice A qui doit etre editee dans le menu RUN MAT. Appuyer sur F3 puis entrer les dimensions (m=nombre d'inconnues et n=nombre d'inconnues+1) puis EXE. EXIT pour finir.
+Le code utilise la matrice A qui doit etre editee dans le menu RUN MAT. Appuyer sur F3 puis entrer les dimensions (m=nombre d'inconnues et n=nombre d'inconnues*2) puis EXE. EXIT pour finir.
 
 Exemple mat A :
-3 -7 -2 -7
--3 5 1 5
-6 -4 0 2
+3 -7 -2 1 0 0
+-3 5 1 0 1 0
+6 -4 0 0 0 1
 
 Ensuite aller dans le menu PRGM. Se placer sur le programme et appuyer sur F1.
 S'affiche tout d'abord la matrice qui va etre travaillee. Appuyer sur EXE pour passer a la suite a chaque fois. S'affichent ensuite les differentes etapes  pour la triangularisation. La derniere matrice qui s'affiche est le resultat. Celle-ci est visible dans la matrice B depuis RUN MAT. 
