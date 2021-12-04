@@ -57,6 +57,11 @@ Mat B# 'Affichage des solutions
 - Stop est accessible vai SHIFT VARS F2 F4
 - Le symbole / est le symbole diviser
 
+=== A propos ===
+
+Resout un systeme d'equations a plusieurs inconnues et affiche les differentes etapes.
+Ne change pas l'ordre des equations et arrête le programme si le pivot est nul. 
+
 === Utilisation ===
 
 Le code utilise la matrice A qui doit etre editee dans le menu RUN MAT. Appuyer sur F3 puis entrer les dimensions (m=nombre d'inconnues et n=nombre d'inconnues+1) puis EXE. EXIT pour finir.
