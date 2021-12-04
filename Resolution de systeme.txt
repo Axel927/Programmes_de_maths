@@ -1,0 +1,66 @@
+Ce code n'est valide que pour les Casio
+
+=== Code ===
+
+Dim Mat A
+List Ans[1->D 'Nombre d inconnues
+Mat A->Mat B 'Recopie de Mat A dans Mat B
+Mat B# 'Affichage de Mat B
+"DESCENTE"#
+For 1->K To D-1
+Mat B[K,K->P 'P prend la valeur pivot
+If P 'Si P non nul
+Then For K+1->I To D
+Mat B[I,K->V 'V prend la valeur a annuler
+For K->J To D+1
+Mat B[I,J]-V/P*Mat B[K,J->Mat B[I,J 'On remplace la valeur en position I,J
+Next
+Next
+Else "PIVOT NUL"
+Stop 'Arrêt du programme
+IfEnd
+Mat B# 'Affichage de la matrice 
+Next
+"REMONTEE"#
+For D->I To 2 Step -1 'I se decrement de 1 a chaque tour
+Mat B[I,I->P 'P prend la valeur pivot
+If P 'Si P non nul
+Then For 1->K To I-1
+Mat B[K,I->V
+For I->J To D+1
+Mat B[K,J]-V/P*Mat B[I,J->Mat B[K,J
+Next
+Next
+Else "PIVOT NUL"
+Stop 'Arrêt du programme
+IfEnd
+Mat B# 'Affichage de la matrice
+Next
+For 1->I To D 'Calcul des solutions
+Mat B[I,D+1]/Mat B[I,I->Mat B[I, D+1
+1->Mat B[I, I
+Next
+"RES"#
+Mat B# 'Affichage des solutions
+
+=== Pour ecrire le code ===
+
+* Menu PRGM puis F3 puis choisir un nom puis EXE
+
+- Le symbole # représente le symbole triangle accessible via SHIFT VARS F5. Il permet d'attendre que l'utilisateur appuie sur EXE pour continuer
+- Le symbole ' permet l'écriture de commentaires (non lu par l'interpreteur) et n'est donc pas necessaire a l'execution du code. Il est accessible via F6 puis sixieme caractere sur la droite
+- Mat est accessible via OPTN F2 F1
+- Dim est accessible via OPTN F2 F6 F2 
+- List est accessible via OPTN F1
+- If est accessible via SHIFT VARS F1
+- For est accessible via SHIFT VARS F6 F1
+- Stop est accessible vai SHIFT VARS F2 F4
+- Le symbole / est le symbole diviser
+
+=== Utilisation ===
+
+Le code utilise la matrice A qui doit etre editee dans le menu RUN MAT. Appuyer sur F3 puis entrer les dimensions (m=nombre d'inconnues et n=nombre d'inconnues+1) puis EXE. EXIT pour finir.
+Ensuite aller dans le menu PRGM. Se placer sur le programme et appuyer sur F1.
+S'affiche tout d'abord la matrice qui va etre travaillee. Appuyer sur EXE pour passer a la suite a chaque fois. S'affichent ensuite les differentes etapes  pour la triangularisation. La derniere matrice qui s'affiche est le resultat. Celle-ci est visible dans la matrice B depuis RUN MAT. 
+ 
+ATTENTION : Le programme utilise la matrice B. Son precedent contenu sera donc efface.
