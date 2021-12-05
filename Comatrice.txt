@@ -39,7 +39,9 @@ ClrMat Z 'On efface la matrice Z
 - List est accessible via OPTN F1
 - If est accessible via SHIFT VARS F1
 - For est accessible via SHIFT VARS F6 F1
-- Les symboles != representent le symbole different accessible via F6 neuvieme caractere
+- Les symboles != representent le symbole different accessible via SHIFT VARS F6 F3 F2
+- Isz est accessible via SHIFT VARS F3 F4
+- ClrMat est accessible via SHIFT VARS F6 F1 F4
 
 === A propos ===
 
