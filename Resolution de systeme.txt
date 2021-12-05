@@ -2,6 +2,8 @@ Ce code n'est valide que pour les Casio
 
 === Code ===
 
+[[1,0,0][0,1,0][0,0,1->Mat P 'Creation de la matrice pivot
+0->C 'Creation du compteur
 Dim Mat A
 List Ans[1->D 'Nombre d inconnues
 Mat A->Mat B 'Recopie de Mat A dans Mat B
@@ -17,7 +19,28 @@ Mat B[I,J]-V/P*Mat B[K,J->Mat B[I,J 'On remplace la valeur en position I,J
 Next
 Next
 Else "PIVOT NUL"
-Stop 'Arrêt du programme
+If K<D 'Si on n'est pas a la derniere ligne
+Then Mat P->Mat Q
+Mat B->Mat Z
+For K+1->N To D
+If Mat Z[K,K]!=Mat Z[N,K 'Si le nouveau pivot n'est pas nul
+Then For 1->M To D+1 'Pivotement des lignes
+Mat Z[N,M->Mat B[K,M
+Mat Z[K,M->Mat B[N,M
+Next
+For 1->M To D
+Mat Q[N,M->Mat P[K,M
+Mat Q[K,M->Mat P[N,M
+Next
+Dsz K 'K se decremente
+C 'Ne pas chercher a comprendre, juste le mettre XD
+Isz C 'On incremente le compteur
+"MAT PIVOT"#
+Mat P#
+Break 'On arrete la boucle
+IfEnd
+Next
+IfEnd
 IfEnd
 Mat B# 'Affichage de la matrice 
 Next
@@ -42,6 +65,12 @@ Mat B[I,D+1]/Mat B[I,I->Mat B[I, D+1
 Next
 "RES"#
 Mat B# 'Affichage des solutions
+"MAT PIVOT"#
+Mat P#
+ClrMat Q
+ClrMat Z
+"CPT="
+C#
 
 === Pour ecrire le code ===
 
@@ -57,11 +86,14 @@ Mat B# 'Affichage des solutions
 - Stop est accessible vai SHIFT VARS F2 F4
 - Le symbole / est le symbole diviser
 - Mat B[I,J equivaut a Mat B[I,J]
+- Isz est accessible via SHIFT VARS F3 F4
+- ClrMat est accessible via SHIFT VARS F6 F1 F4
+- Les symboles != representent le symbole different accessible via SHIFT VARS F6 F3 F2
 
 === A propos ===
 
 Resout un systeme d'equations a plusieurs inconnues et affiche les differentes etapes.
-Ne change pas l'ordre des equations et arrête le programme si le pivot est nul. 
+Change l'ordre des equations si un pivot est nul pendant la descente. La matrice de pivot est affichee ainsi que le compteur. 
 
 === Utilisation ===
 
@@ -73,6 +105,6 @@ Exemple mat A :
 6 -4 0 2
 
 Ensuite aller dans le menu PRGM. Se placer sur le programme et appuyer sur F1.
-S'affiche tout d'abord la matrice qui va etre travaillee. Appuyer sur EXE pour passer a la suite a chaque fois. S'affichent ensuite les differentes etapes  pour la triangularisation. La derniere matrice qui s'affiche est le resultat. Celle-ci est visible dans la matrice B depuis RUN MAT. 
+S'affiche tout d'abord la matrice qui va etre travaillee. Appuyer sur EXE pour passer a la suite a chaque fois. S'affichent ensuite les differentes etapes  pour la triangularisation. La derniere matrice qui s'affiche est le resultat. Celle-ci est visible dans la matrice B depuis RUN MAT. La matrice de pivot est enregistree dans la matrice P.
  
-ATTENTION : Le programme utilise la matrice B. Son precedent contenu sera donc efface.
+ATTENTION : Le programme utilise les matrices B, P, Q et Z . Leur precedent contenu sera donc efface.
