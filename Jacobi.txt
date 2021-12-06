@@ -1,0 +1,87 @@
+Ce code n'est valide que pour les Casio
+
+=== Code ===
+
+Dim Mat A
+List Ans[1->D
+{D,D->Dim Mat D
+{D,D->Dim Mat E
+For 1->I To D
+For 1->J to D
+If I=J
+Then Mat A[I,J->Mat D[I,J 'Remplissage de la matrice diagonale
+Else Mat A[I,J->Mat E[I,J 'Remplissage de l'autre matrice telle que A=D+E
+IfEnd
+Next
+Next
+{D,1->Dim Mat X 'Creation d'une matrice colonne
+{D,1->Dim Mat Y
+"EPS=10^N"
+"N="
+?->N 'Choix de la précision
+"MAX ITER="
+?->M
+1->C
+Mat D^-1*(Mat B-Mat E*Mat X)->Mat Y 'On calcule les valeurs des inconnues
+"TOUR"
+C#
+Mat Y#
+Do
+Mat Y->Mat X
+Mat D^-1*(Mat B-Mat E*Mat X)->Mat Y 'On calcule les valeurs des inconnues
+"TOUR"
+C+1#
+Mat Y#
+Trn Mat X->Mat U 'On stocke la transposee de X dans U
+Trn Mat Y->Mat V
+Isz C
+LpWhile sqrt(Abs(Mat V[1,1]*Mat Y[1,1]-Mat U[1,1]*Mat X[1,1]))/sqrt(Abs(Mat U[1,1]*Mat X[1,1]))>= 10^N And C<M
+"RES="#
+Mat Y#
+ClrMat U
+ClrMat V
+ClrMat X
+
+=== Pour ecrire le code ===
+
+* Menu PRGM puis F3 puis choisir un nom puis EXE
+
+- Le symbole # represente le symbole triangle accessible via SHIFT VARS F5. Il permet d'attendre que l'utilisateur appuie sur EXE pour continuer
+- Le symbole ' permet l'écriture de commentaires (non lus par l'interpreteur) et n'est donc pas necessaire a l'execution du code. Il est accessible via F6 puis sixieme caractere sur la droite
+- Mat est accessible via OPTN F2 F1
+- Dim est accessible via OPTN F2 F6 F2 
+- List est accessible via OPTN F1
+- If est accessible via SHIFT VARS F1
+- For est accessible via SHIFT VARS F6 F1
+- Le symbole / est le symbole diviser
+- Mat B[I,J equivaut a Mat B[I,J]
+- Isz est accessible via SHIFT VARS F3 F4
+- ClrMat est accessible via SHIFT VARS F6 F1 F4
+- Do est accessible via SHIFT VARS F6 F6 F1
+- Trn est accessible via OPTN F2 F4
+- sqrt est la racine carree 
+- Abs est accessible via OPTN F6 F4 F1
+- Les symboles >= est le symbole accessible via SHIFT VARS F6 F3
+- Possibilite d'ecrire SHIFT ) plutot que ^-1  
+
+=== A propos ===
+
+Resout un systeme d'equations a plusieurs inconnues et affiche les differentes etapes avec la methode de Jacobi.
+
+=== Utilisation ===
+
+Le code utilise la matrice A ainsi que la matrice B qui doivent etre editees dans le menu RUN MAT. Appuyer sur F3 puis entrer les dimensions (m=nombre d'inconnues et n=nombre d'inconnues) pour A et m=nombre d'inconnues et n=1 pour B puis EXE. EXIT pour finir.
+
+Exemple mat A :
+3 -7 -2 
+-3 5 1 
+6 -4  2
+
+Mat B :
+1
+2
+3
+
+Ensuite aller dans le menu PRGM. Se placer sur le programme et appuyer sur F1. Appuyer sur EXE pour passer a la suite a chaque fois. S'affichent les valeurs des solutions a chaque etape. Les matrices A, B, D, E et Y sont visibles dans RUM MAT.
+ 
+ATTENTION : Le programme utilise les matrices A, B, D, E, X, Y, U et V. Leur precedent contenu sera donc efface.
