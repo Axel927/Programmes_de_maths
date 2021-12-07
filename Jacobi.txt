@@ -33,14 +33,18 @@ Mat D^-1*(Mat B-Mat E*Mat X)->Mat Y 'On calcule les valeurs des inconnues
 C+1#
 Mat Y#
 Trn Mat X->Mat U 'On stocke la transposee de X dans U
-Trn Mat Y->Mat V
+Mat U*Mat X->Mat U
+Mat Y-Mat X->Mat V
+Trn Mat V->Mat W
+Mat W*Mat V->Mat V
 Isz C
-LpWhile sqrt(Abs(Mat V[1,1]*Mat Y[1,1]-Mat U[1,1]*Mat X[1,1]))/sqrt(Abs(Mat U[1,1]*Mat X[1,1]))>= 10^N And C<M
+LpWhile sqrt(Mat V[1,1])/sqrt(Mat U[1,1])>= 10^N And C<M
 "RES="#
 Mat Y#
 ClrMat U
 ClrMat V
 ClrMat X
+ClrMat W
 
 === Pour ecrire le code ===
 
@@ -84,4 +88,4 @@ Mat B :
 
 Ensuite aller dans le menu PRGM. Se placer sur le programme et appuyer sur F1. Appuyer sur EXE pour passer a la suite a chaque fois. S'affichent les valeurs des solutions a chaque etape. Les matrices A, B, D, E et Y sont visibles dans RUM MAT.
  
-ATTENTION : Le programme utilise les matrices A, B, D, E, X, Y, U et V. Leur precedent contenu sera donc efface.
+ATTENTION : Le programme utilise les matrices A, B, D, E, X, Y, U, W et V. Leur precedent contenu sera donc efface.
